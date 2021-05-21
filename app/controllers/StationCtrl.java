@@ -1,7 +1,7 @@
 package controllers;
 
-import models.Station;
 import models.Reading;
+import models.Station;
 import play.Logger;
 import play.mvc.Controller;
 import utils.StationAnalytics;
@@ -9,7 +9,6 @@ import utils.StationAnalytics;
 import java.util.Date;
 
 import static java.lang.System.currentTimeMillis;
-
 
 public class StationCtrl extends Controller
 {
@@ -67,7 +66,7 @@ public class StationCtrl extends Controller
     Reading reading = new Reading(date, code, temperature, windSpeed, windDirection, pressure, fahrenheit, celsius, windChill);
     station.readings.add(reading);
     station.save();
+    index(station.id);
     render("station.html", station);
-    //redirect ("/stations/${station.id}");
   }
 }
