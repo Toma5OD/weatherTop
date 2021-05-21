@@ -1,0 +1,43 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       controllers.Start.index()
+
+GET    /signup                                  controllers.Accounts.signup
+GET    /login                                   controllers.Accounts.login
+POST   /register                                controllers.Accounts.register
+POST   /authenticate                            controllers.Accounts.authenticate
+GET    /logout                                  controllers.Accounts.logout
+
+GET     /dashboard                              controllers.Dashboard.index()
+
+GET     /dashboard/deletestation/{id}           controllers.Dashboard.deleteStation(Long id)
+POST    /dashboard/addstation                   controllers.Dashboard.addStation(String name)
+
+
+GET     /about                                  controllers.About.index()
+GET     /admin                                  controllers.Admin.index()
+
+
+
+GET     /stations/{id}                          controllers.StationCtrl.index
+
+POST    /stations/{id}/addreading                controllers.StationCtrl.addReading
+GET     /stations/{id}/deletereading/{readingid} controllers.StationCtrl.deleteReading
+
+# Dashboard
+
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+GET     /public/images/weatherIreland.png       controllers.Start.index()
+GET     /public/images/weatherIreland.jpg       controllers.Start.index()
+
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}

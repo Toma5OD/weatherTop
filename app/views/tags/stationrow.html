@@ -1,0 +1,59 @@
+<div class="ui segment">
+    #{list items:_station, as:'station'}
+    <div class="ui five inverted cards">
+        <div class="card">
+            <div class="content">
+                <a href="/stations/${station.id}" class="header item">${station.name} <span><i class="big violet marker icon"></i></span></a>
+                <div class="description">
+                    <p></p>
+                    <p>Lat: ${_station.lat}</p>
+                    <p>Lng: ${_station.lng}</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+                <a class="header">Weather <i class="big ${station.weatherToHTML}"></i> </a>
+                <div class="description">
+                    ${_station.latestWeather}
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+                <a class="header">Temp <i class="big blue temperature low icon"></i></a>
+                <div class="description">
+                    <p>${_station.celsius} Cº</p>
+                    <p>${_station.fahrenheit} Fº</p>
+                    <p>Max: ${station.getMaxTemperature} <i class="${station.tempTrend}"></i></p>
+                    <p>Min: ${station.getMinTemperature}</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+                <a class="header">Wind <span><i class="big green wind icon"></i></span></a>
+                <div class="description">
+                    <p>${_station.windSpeedBFT} bft</p>
+                    <p>${_station.windCompass}</p>
+                    <p>Feels like</p>
+                    <p>${_station.windChill}</p>
+                    <p>Max: ${station.getMaxWind} <i class="${station.windTrend}"></i></p>
+                    <p>Min: ${station.getMinWind}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="content">
+                <a class="header">Pressure <i class="big orange arrows alternate icon"></i></a>
+                <div class="description">
+                    <p>${_station.showPressure} hpa</p>
+                    <p>Max: ${station.getMaxPressure} <i class="${station.pressureTrend}"></i></p>
+                    <p>Min: ${station.getMinPressure}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    #{/list}
+</div>
