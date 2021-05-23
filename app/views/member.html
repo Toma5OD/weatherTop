@@ -1,0 +1,47 @@
+#{extends 'main.html' /}
+#{set title:'Member' /}
+
+#{menu id:"accounts"/}
+
+<section class="ui segment">
+    <h2 class="ui header">
+        Personal Details
+    </h2>
+    <p>
+        First Name: ${member.firstname}
+    </p>
+    <p>
+        Last Name: ${member.lastname}
+    </p>
+    <p>
+        Email: ${member.email}
+    </p>
+    <p>
+        Password: ${member.password}
+    </p>
+</section>
+
+<form class="ui stacked segment form" action="/members/editmember" method="POST">
+    <div class="four fields">
+        <div class="field">
+            <label>firstname</label>
+            <input placeholder="${member.firstname}" type="text" name="firstname" value="${member.firstname}">
+        </div>
+        <div class="field">
+            <label>lastname</label>
+            <input placeholder="${member.lastname}" type="text" name="lastname" value="${member.lastname}">
+        </div>
+        <div class="field">
+            <label>email</label>
+            <input placeholder="${member.email}" type="email" name="email" value="${member.email}">
+        </div>
+        <div class="field">
+            <label>password</label>
+            <input placeholder="${member.password}" type="password" name="password" value="${member.password}">
+        </div>
+    </div>
+    <button class="ui centered green button">Edit Member</button>
+</form>
+
+
+

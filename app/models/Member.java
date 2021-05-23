@@ -16,8 +16,6 @@ public class Member extends Model
   public String email;
   public String password;
 
-  @OneToMany(cascade = CascadeType.ALL)
-  public List<Station> stations = new ArrayList<Station>();
 
   public Member(String firstname, String lastname, String email, String password)
   {
@@ -36,4 +34,5 @@ public class Member extends Model
   {
     return this.password.equals(password);
   }
+
 }

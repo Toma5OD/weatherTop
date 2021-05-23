@@ -13,13 +13,13 @@ GET    /logout                                  controllers.Accounts.logout
 
 GET     /dashboard                              controllers.Dashboard.index()
 
-GET     /dashboard/deletestation/{id}           controllers.Dashboard.deleteStation(Long id)
-POST    /dashboard/addstation                   controllers.Dashboard.addStation(String name)
-
+GET     /dashboard/deletestation/{id}           controllers.Dashboard.deleteStation
+POST    /dashboard/addstation                   controllers.Dashboard.addStation
 
 GET     /about                                  controllers.About.index()
-GET     /admin                                  controllers.Admin.index()
 
+GET     /member                                 controllers.Accounts.index()
+POST    /members/editmember                     controllers.Accounts.user
 
 
 GET     /stations/{id}                          controllers.StationCtrl.index
